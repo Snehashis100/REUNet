@@ -1,65 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
-get_ipython().run_line_magic('matplotlib', 'inline')
 from plotly.graph_objs import *
 from skimage.transform import resize
 from tensorflow.keras import backend as K
 import tensorflow as tf
 from tensorflow.keras.layers import Conv2D, DepthwiseConv2D, ReLU, BatchNormalization, add,Softmax, AveragePooling2D, Dense, Input, GlobalAveragePooling2D, Reshape, multiply, GlobalMaxPooling2D
 from tensorflow.keras.models import Model
-
-
-# In[ ]:
-
-
-
-
-
-# In[20]:
-
-
-# from sklearn.model_selection import train_test_split
-
-# X_train_tot,X_test_tot, y_train_tot1,y_test_tot1 = train_test_split(X_train_tot, y_train_tot, test_size=0.8, random_state=42)
-
-
-# In[ ]:
-
-
-
-
-
-# In[21]:
-
-
-# y_train_tot1 = tf.cast(y_train_tot1, dtype=tf.float32)
-# y_test_tot1 = tf.cast(y_test_tot1, dtype=tf.float32)
-# y_val_tot1 = tf.cast(y_val_tot, dtype=tf.float32)
-
-
-# In[22]:
-
-
-# type(X_train_tot)
-
-
-# In[23]:
-
-
-# type(y_train_tot1)
-
-
-# In[ ]:
-
-
-
-
-
-# In[25]:
 
 
 # Function to adjust the width coefficient (filters) of the model 
@@ -73,9 +17,6 @@ def _depth(v, divisor=8, min_value=None, width_coefficient= 2):
         new_v += divisor
         
     return int(new_v)
-
-
-# In[26]:
 
 
 ## Function that incorporates squeeze and excite mechanism
@@ -94,9 +35,6 @@ def squeeze_excite_block(input_tensor, se_ratio): #16
 
     x = multiply([init, se])
     return x
-
-
-# In[27]:
 
 
 ## Building block of M3ONet that combines all the basic units (Depthwise Separable Convolution, Squeeze and Excite Block) along with Gating Signal
@@ -136,10 +74,6 @@ def DMBC(inp_layer, filters, kernel_size, strides, relu_type, expansion_factor, 
 
     return bn4
 
-
-# In[28]:
-
-
 # Basic Unit of Decoding blocks
 def conv_block(x, filter_size, size, dropout,num, batch_norm):
     
@@ -159,9 +93,6 @@ def conv_block(x, filter_size, size, dropout,num, batch_norm):
     return conv
 
 
-# In[29]:
-
-
 def signaling(input, out_size, batch_norm):
     """
     resize the down layer feature map into the same dimension as the up layer feature map
@@ -173,9 +104,6 @@ def signaling(input, out_size, batch_norm):
         x = tf.keras.layers.BatchNormalization()(x)
     x = tf.keras.layers.Activation('relu')(x)
     return x
-
-
-# In[30]:
 
 
 # Spatial attention employed between the encoding and decoding blocks
@@ -207,9 +135,6 @@ def attention_block(x, gating, inter_shape):
     return result_bn # returns attention guided feature maps
 
 
-# In[31]:
-
-
 def repeat_elem(tensor, rep):
     # lambda function to repeat Repeats the elements of a tensor along an axis
     #by a factor of rep.
@@ -218,9 +143,6 @@ def repeat_elem(tensor, rep):
 
      return tf.keras.layers.Lambda(lambda x, repnum: K.repeat_elements(x, repnum, axis=3),
                           arguments={'repnum': rep})(tensor)
-
-
-# In[33]:
 
 
 def DropOutLayer(inp_layer,dropout):
