@@ -1,18 +1,16 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
 import tensorflow as tf
 from tensorflow.keras.models import Model
 from Modules import *
 
-
-# In[5]:
-
-
+# M3ONet architecture
 def model(num_classes, output_activation, input_shape = (256,256,3)):
+    """INPUTS:
+               num_classes: (Integer) representing number of classes in the dataset
+               out_activation: (String) representing the activation function of the output layer
+               input_shape: (Tuple) representing the shape of the input image
+               
+        OUTPUT: m3onet model object (tf)"""
+    
     inp = tf.keras.layers.Input(shape=input_shape, dtype=tf.float32)
     conv1 = tf.keras.layers.Conv2D(32,kernel_size=3,padding='same')(inp)
 
@@ -51,7 +49,7 @@ def model(num_classes, output_activation, input_shape = (256,256,3)):
 
     # Downsample
     dol = DropOutLayer(b37,0.2)
-    max_pool3 = tf.keras.layers.MaxPooling2D(pool_size=(2,2))(dol)#(b37)
+    max_pool3 = tf.keras.layers.MaxPooling2D(pool_size=(2,2))(dol)
 
     # block 4
     b41 = DMBC(inp_layer=max_pool3, filters=8 * 32, kernel_size=3, strides=1, relu_type=6, expansion_factor=6)
@@ -67,10 +65,10 @@ def model(num_classes, output_activation, input_shape = (256,256,3)):
 
     # Downsample
     dol = DropOutLayer(b410,0.2)
-    max_pool4 = tf.keras.layers.MaxPooling2D(pool_size=(2,2))(dol)#(b410)
+    max_pool4 = tf.keras.layers.MaxPooling2D(pool_size=(2,2))(dol)
 
     # block 5
-    b51 = DMBC(inp_layer=max_pool4, filters=16* 32, kernel_size=5, strides=1, relu_type=6, expansion_factor=6)#3 
+    b51 = DMBC(inp_layer=max_pool4, filters=16* 32, kernel_size=5, strides=1, relu_type=6, expansion_factor=6) 
     b52 = DMBC(inp_layer=b51, filters=16 * 32, kernel_size=5, strides=1, relu_type=6, expansion_factor=6)
     b53 = DMBC(inp_layer=b52, filters=16 * 32, kernel_size=5, strides=1, relu_type=6, expansion_factor=6)
     b54 = DMBC(inp_layer=b53, filters=16 * 32, kernel_size=5, strides=1, relu_type=6, expansion_factor=6)
@@ -83,7 +81,7 @@ def model(num_classes, output_activation, input_shape = (256,256,3)):
 
     dol = DropOutLayer(b510,0.2)
     #Intermediate layer of UWNet
-    gatingw_16 = signaling(input=dol, out_size=8*32, batch_norm=True) #b510
+    gatingw_16 = signaling(input=dol, out_size=8*32, batch_norm=True)
     attw_16 = attention_block(x=b410, gating=gatingw_16, inter_shape=8*32)
     upw_16 = tf.keras.layers.UpSampling2D(size=(2, 2), data_format="channels_last")(b510)
     upw_16 = tf.keras.layers.concatenate([upw_16, attw_16], axis=3)
@@ -101,11 +99,11 @@ def model(num_classes, output_activation, input_shape = (256,256,3)):
     b610 = DMBC(inp_layer=b69, filters=8*32, kernel_size=5, strides=1, relu_type=6, expansion_factor=6)
     b611 = DMBC(inp_layer=b610, filters=8*32, kernel_size=5, strides=1, relu_type=6, expansion_factor=6)
     b612 = DMBC(inp_layer=b611, filters=8*32, kernel_size=5, strides=1, relu_type=6, expansion_factor=6)
-    b613 = DMBC(inp_layer=b612, filters=8*32, kernel_size=5, strides=1, relu_type=6, expansion_factor=6) #up_convw_16
+    b613 = DMBC(inp_layer=b612, filters=8*32, kernel_size=5, strides=1, relu_type=6, expansion_factor=6)
 
     # Downsample
     dol = DropOutLayer(b613,0.2)
-    max_pool5 = tf.keras.layers.MaxPooling2D(pool_size=(2,2))(dol)#(b613)
+    max_pool5 = tf.keras.layers.MaxPooling2D(pool_size=(2,2))(dol)
 
     # block 7
     # 6 was in expansion
@@ -117,7 +115,7 @@ def model(num_classes, output_activation, input_shape = (256,256,3)):
     dol = DropOutLayer(b74,0.2)
     # Decoder
     # UpRes 6, attention gated concatenation + upsampling + double residual convolution
-    gating_16 = signaling(input=dol, out_size=8*32, batch_norm=True) #b74
+    gating_16 = signaling(input=dol, out_size=8*32, batch_norm=True)
     att_16 = attention_block(x=b613, gating=gating_16, inter_shape=8*32)
     up_16 = tf.keras.layers.UpSampling2D(size=(2, 2), data_format="channels_last")(b74)
     up_16 = tf.keras.layers.concatenate([up_16, att_16], axis=3)
@@ -151,16 +149,3 @@ def model(num_classes, output_activation, input_shape = (256,256,3)):
     
     m3onet = Model(inp,conv_final, name="M3ONet")
     return m3onet
-
-
-# In[6]:
-
-
-a= model(num_classes=1, output_activation='sigmoid')
-
-
-# In[7]:
-
-
-a.summary()
-
