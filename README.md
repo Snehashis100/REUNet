@@ -1,4 +1,5 @@
-M<sup>3</sup>ONet: A Generalized Multi Modal Multi-Organ Network for Precise Segmentation of Medical Images
+#M<sup>3</sup>ONet: A Generalized Multi Modal Multi-Organ Network for Precise Segmentation of Medical Images
+by Snehashis Chakraborty, Komal Kumar, Abhijit Das, Balakrishna Reddy Pailla, Sudipta Roy
 
 
 | Input | Ground Truth | Output |
