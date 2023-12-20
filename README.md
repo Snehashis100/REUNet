@@ -4,5 +4,5 @@ M<sup>3</sup>ONet: A Generalized Multi Modal Multi-Organ Network for Precise Seg
 
 
 <img src="https://github.com/Snehashis100/M3ONet/blob/main/media/input_imgs.gif" width="200" height="200">
-<img src="https://github.com/Snehashis100/M3ONet/blob/main/media/gt_imgs.gif width="200" height="200">
+<img src="https://github.com/Snehashis100/M3ONet/blob/main/media/gt_imgs.gif" width="200" height="200">
 <img src="https://github.com/Snehashis100/M3ONet/blob/main/media/output_imgs.gif" width="200" height="200">
