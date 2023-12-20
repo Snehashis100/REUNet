@@ -6,16 +6,3 @@ M<sup>3</sup>ONet: A Generalized Multi Modal Multi-Organ Network for Precise Seg
 | ![Input Image](https://github.com/Snehashis100/M3ONet/blob/main/media/input_imgs.gif)| ![Ground Truth Image](https://github.com/Snehashis100/M3ONet/blob/main/media/gt_imgs.gif) | ![Output Image](https://github.com/Snehashis100/M3ONet/blob/main/media/output_imgs.gif) |
 
 
-```json
-   // code for coloring
-```
-```html
-   // code for coloring
-```
-```js
-   // code for coloring
-```
-```css
-   // code for coloring
-```
-// etc.
