@@ -1,8 +1,8 @@
-# M<sup>3</sup>ONet: A Generalized Multi Modal Multi-Organ Network for Precise Segmentation of Medical Images
+# Robust Semantic Learning for Precise Medical Image Segmentation
 
-Authors: Snehashis Chakraborty, Komal Kumar, Abhijit Das, Balakrishna Reddy Pailla, Sudipta Roy
+Authors: Snehashis Chakraborty, Komal Kumar, Ankan Deria, Dwarikanath Mahapatra, Behzad Bozorgtabar, Sudipta Roy
 
-This repo contains the source code for our paper M<sup>3</sup>ONet: A Generalized Multi Modal Multi-Organ Network for Precise Segmentation of Medical Images.
+This repo contains the source code for our paper Robust Semantic Learning for Precise Medical Image Segmentation.
 
 <p align="center">
   <img src="https://github.com/Snehashis100/M3ONet/assets/63040034/3c668bfa-f470-46ad-bf98-ef46777f9b2f" alt="Image Description">
@@ -10,17 +10,17 @@ This repo contains the source code for our paper M<sup>3</sup>ONet: A Generalize
 
 ## Features
 
-- M<sup>3</sup>ONet relies on a strong encoding pathway, enabling precise segmentation of target lesions across diverse regions
-- The integration of a novel module named DMBC in M<sup>3</sup>ONet helps the model to focus on the intrinsic features for better understanding of the interclass relationship.
-- M<sup>3</sup>ONet undergoes testing on five distinct multimodal datasets, showcasing its exceptional capacity for generalization compared to other state-of-the-art models.
-- M<sup>3</sup>ONet also exhibit low computational complexity that makes it suitable for real world applications.
+- REUnet relies on a strong encoding pathway, enabling precise segmentation of target lesions across diverse regions
+- The integration of a novel module named DMBC in REUnet helps the model to focus on the intrinsic features for better understanding of the interclass relationship.
+- REUnet undergoes testing on five distinct multimodal datasets, showcasing its exceptional capacity for generalization compared to other state-of-the-art models.
+- REUnet also exhibit low computational complexity that makes it suitable for real world applications.
 
 ## Usage
 
 1. Install all the required packages from the requirment.txt file.
-2. Create an object of M<sup>3</sup>ONet by the following code:
+2. Create an object of REUnet by the following code:
      ```
-     m3onet = M3ONet.model(num_classes, output_activation, input_shape = (256,256,3))
+     REUnet = REUnet.model(num_classes, output_activation, input_shape = (256,256,3))
      # provide num_classes, output_activation, and input_shape based on your  requirment.
      ```
 3. Once the object is created, compile and train the model based on your requirement.
