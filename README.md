@@ -7,7 +7,6 @@ This repo contains the source code for our paper Robust Semantic Learning for Pr
 <p align="center">
   <img src="https://github.com/user-attachments/assets/776c6560-d427-4593-830c-d85523394eb6" alt="Image Description">
 </p>
-![m3onet](https://github.com/user-attachments/assets/776c6560-d427-4593-830c-d85523394eb6)https://github.com/Snehashis100/M3ONet/assets/63040034/3c668bfa-f470-46ad-bf98-ef46777f9b2f
 
 ## Features
 
