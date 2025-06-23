@@ -43,6 +43,7 @@ This repo contains the source code for our paper Robust Semantic Learning for Pr
 <p align="center">
   <img src="https://github.com/Snehashis100/REUNet/media/qualitative_comparison.jpg" alt="Image Description">
 </p>
+![qualitative_comparison](https://github.com/user-attachments/assets/9e6fee04-657c-4403-a5b5-e79ffa4e5478)
 
 ## Citation
 If you found REUnet useful in your research, please consider starring ⭐ us on GitHub and citing 📚 us in your research!
