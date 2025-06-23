@@ -45,7 +45,7 @@ This repo contains the source code for our paper Robust Semantic Learning for Pr
 </p>
 
 ## Citation
-If you found OneFormer useful in your research, please consider starring ⭐ us on GitHub and citing 📚 us in your research!
+If you found REUnet useful in your research, please consider starring ⭐ us on GitHub and citing 📚 us in your research!
 
   ```bibtex
 will be provided once published
