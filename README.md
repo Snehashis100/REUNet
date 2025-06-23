@@ -15,7 +15,7 @@ route on the other side comprises of multiple decoding blocks (DB) for obtaining
 
 <figure>
   <p align="center">
-  <img src="https://github.com/user-attachments/assets/95ac332f-e07f-4f09-b67d-0fd5420139fa" alt="Image Description" width="800" height="200">
+  <img src="https://github.com/user-attachments/assets/95ac332f-e07f-4f09-b67d-0fd5420139fa" alt="Image Description" width="600" height="300">
 </p>
   <figcaption>The architectural design of Dynamical Mobile Inverted Bottleneck Convolution (DMBC) which implements
 Gating Signal along with depth wise separable convolution and squeeze and excite attention block. DMBC takes an input
