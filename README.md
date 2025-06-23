@@ -13,6 +13,15 @@ and it employs either the standard ReLU activation function (i=1) or the ReLU6 a
 route on the other side comprises of multiple decoding blocks (DB) for obtaining the segmentation mask.</figcaption>
 </figure>
 
+<figure>
+  <p align="center">
+  <img src="https://github.com/user-attachments/assets/95ac332f-e07f-4f09-b67d-0fd5420139fa" alt="Image Description" width="800" height="600">
+</p>
+  <figcaption>The architectural design of Dynamical Mobile Inverted Bottleneck Convolution (DMBC) which implements
+Gating Signal along with depth wise separable convolution and squeeze and excite attention block. DMBC takes an input
+tensor of shape (𝐻𝑖 × 𝑊𝑖 × 𝐶𝑖) and outputs a tensor of shape (𝐻𝑖 × 𝑊𝑖 × 𝐶𝑘).</figcaption>
+</figure>
+![dmbc]()
 
 ## Features
 
