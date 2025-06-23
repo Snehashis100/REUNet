@@ -41,7 +41,7 @@ This repo contains the source code for our paper Robust Semantic Learning for Pr
 
 ## Some more results
 <p align="center">
-  <img src="https://github.com/Snehashis100/M3ONet/assets/63040034/05eb92c9-4e51-4b0f-8f95-e4d054c84227" alt="Image Description">
+  <img src="https://github.com/Snehashis100/M3ONet/media/qualitative_comparison.jpg" alt="Image Description">
 </p>
 
 ## Citation
