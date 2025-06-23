@@ -20,7 +20,7 @@ This repo contains the source code for our paper Robust Semantic Learning for Pr
 1. Install all the required packages from the requirment.txt file.
 2. Create an object of REUnet by the following code:
      ```
-     REUnet = REUnet.model(num_classes, output_activation, input_shape = (256,256,3))
+     reunet = REUnet.model(num_classes, output_activation, input_shape = (256,256,3))
      # provide num_classes, output_activation, and input_shape based on your  requirment.
      ```
 3. Once the object is created, compile and train the model based on your requirement.
