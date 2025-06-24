@@ -2,7 +2,7 @@
 
 Authors: Snehashis Chakraborty, Komal Kumar, Ankan Deria, Dwarikanath Mahapatra, Behzad Bozorgtabar, Sudipta Roy
 
-This repo contains the source code for our paper Robust Semantic Learning for Precise Medical Image Segmentation which is accepted in Biomedical Signal Processing and Control.
+This repo contains the source code for our paper Robust Semantic Learning for Precise Medical Image Segmentation which is accepted in Biomedical Signal Processing and Control, Elsevier.
 <figure>
   <p align="center">
   <img src="https://github.com/user-attachments/assets/776c6560-d427-4593-830c-d85523394eb6" alt="Image Description" width="700" height="600">
